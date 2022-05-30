@@ -5,3 +5,4 @@ wp-includes
 wp-content/uploads
 wp-content/plugins
 .idea
+_deploy/git-deploy/deploy.log

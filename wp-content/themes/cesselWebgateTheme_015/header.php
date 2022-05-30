@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * The Header template for our theme
  *
@@ -12,6 +12,7 @@
 <html lang="ru">
 <head>
     <link rel="stylesheet" href="/wp-content/themes/cesselWebgateTheme_015/css/icons/css/fontello.css">
+    <link rel="stylesheet" href="/wp-content/themes/cesselWebgateTheme_015/css/icons/css/animation.css">
     <style>.preloader{top:0;bottom:0;left:0;right:0;position:fixed;display:flex; z-index:99999; align-items:center;align-content:center;justify-content:center;background-color:#fff;font-size:5em;}.preloader i{color:#537791;}body{overflow:hidden;}</style>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title><?php wp_title(); ?></title>

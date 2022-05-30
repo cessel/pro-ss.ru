@@ -7,7 +7,14 @@
  */
 
 get_header(); ?>
-<?
+<?php
+/**
+ * @var $post WP_Post
+ * @var $cat WP_Term
+ */
+
+
+
 $goods_title = "Каталог продукции";
 //$page_html = ($wp_query->max_num_pages > 1)? ' - страница '.$page : '';
 $page_html = (get_query_var('paged')) ? ' - страница '.get_query_var('paged') : '';
@@ -20,15 +27,15 @@ $category_html = get_goods_categories();
     <div class="container">
         <div class="inner">
             <div class="goods__title">
-                <h1><? echo apply_filters('the_title','Категория '.$cat->name).$page_html; ?></h1>
+                <h1><?php echo apply_filters('the_title','Категория '.$cat->name).$page_html; ?></h1>
             </div>
             <div class="goods__description">
-				<? echo apply_filters('the_content',$cat->description); ?>
+				<?php echo apply_filters('the_content',$cat->description); ?>
             </div>
-            <div class="goods__categories<? echo $page_cats_hide; ?>">
-				<? echo $category_html; ?>
+            <div class="goods__categories<?php echo $page_cats_hide; ?>">
+				<?php echo $category_html; ?>
             </div>
-			<? if(!$category_html){ ?>
+			<?php if(!$category_html){ ?>
                 <div class="products">
                     <div class="products__viewtype">
                         <div class="product_viewlist " data-view_type="large"><i class="fa fa-th-large" aria-hidden="true"></i></div>
@@ -45,7 +52,7 @@ $category_html = get_goods_categories();
                 <div class="goods__pagination">
 					<?php echo  paginate_links(); ?>
                 </div>
-			<? } ?>
+			<?php } ?>
         </div>
     </div>
-    </div><? get_footer(); ?>
+    </div><?php get_footer(); ?>

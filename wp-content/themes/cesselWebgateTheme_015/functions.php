@@ -531,14 +531,20 @@ function get_product($product)
 				<? echo get_attributes($product->ID); ?>
             </div>
             <div class="product-card__btn">
-                <? $in_cart = is_product_in_cart($product->ID); ?>
-                <? $add_to_cart_class = ($in_cart)? ' added' : '';?>
-                <? $add_to_cart_text = (!$in_cart)? 'В корзину' : 'В корзине'; ?>
-                <button class="site-btn product-card__buy<? echo $add_to_cart_class; ?>" data-product="<? echo $product->ID; ?>" data-price="<? echo $price; ?>" data-incart="0"><? echo $add_to_cart_text; ?></button>
+                <? echo  get_add_to_cart_html($product); ?>
             </div>
         </div>
     </div>
 <?
+}
+
+function get_add_to_cart_html($product): string {
+	$in_cart           = is_product_in_cart( $product->ID );
+	$add_to_cart_class = ( $in_cart ) ? ' added' : '';
+	$add_to_cart_text  = ( ! $in_cart ) ? 'В корзину' : 'В корзине';
+	$price             = get_product_price( $product->ID );
+
+	return sprintf( '<button class="site-btn product-card__buy%s" data-product="%d" data-price="%s" data-incart="0">TEST%s</button>', $add_to_cart_class, $product->ID, $price, $add_to_cart_text );
 }
 
 function get_product_price_html($price) {
